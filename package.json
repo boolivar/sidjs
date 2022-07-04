@@ -1,4 +1,11 @@
 {
+  "name": "@boolivar/sidjs",
+  "version": "0.1.0",
+  "main": "dist/sidjs.js",
+  "files": [
+    "dist/sidjs.min.js",
+    "dist/*.d.ts"
+  ],
   "devDependencies": {
     "@types/jest": "^28.1.3",
     "jest": "^28.1.2",
@@ -15,5 +22,26 @@
     "compile": "tsc",
     "rollup": "rollup dist/main.js --format iife --name 'Sidjs' --sourcemap --file dist/sidjs.js",
     "uglify": "uglifyjs dist/sidjs.js --compress --mangle --source-map --output dist/sidjs.min.js"
-  }
+  },
+  "description": "Javascript Spring Integration Graph to DOT converter",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boolivar/sidjs.git"
+  },
+  "keywords": [
+    "Spring",
+    "Integration",
+    "DOT",
+    "JS",
+    "Javascript"
+  ],
+  "author": "Aleksey Krichevskiy <boolivar@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/boolivar/sidjs/issues"
+  },
+  "homepage": "https://github.com/boolivar/sidjs#readme"
 }
