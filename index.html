@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex flex-column vh-100 align-items-start">
+        <button id="control" type="button" class="btn btn-link" onclick="reset()">&lt back</button>
+        <div id="container" class="d-none flex-grow-1 w-100"></div>
+        <div id="form" class="d-flex flex-column flex-grow-1 w-100 align-items-start">
+            <textarea id="json" class="form-control flex-grow-1 w-50"></textarea>
+            <button class="btn btn-primary" type="submit" onclick="submit()">Submit</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@6.7.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/wasm@1.12.8/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-graphviz@4.1.1/build/d3-graphviz.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@boolivar/sidjs@0.1.0/dist/sidjs.min.js"></script>
+
+    <script type="text/javascript">
+        function submit() {
+            var sidjs = new Sidjs();
+            var dot = sidjs.convert(document.getElementById("json").value);
+
+            document.getElementById("form").classList.add("d-none");
+            document.getElementById("control").classList.remove("d-none");
+            document.getElementById("container").classList.remove("d-none");
+            d3.select("#container").graphviz().renderDot(dot);
+        }
+        
+        function reset() {
+            document.getElementById("form").classList.remove("d-none");
+            document.getElementById("control").classList.add("d-none");
+            document.getElementById("container").classList.add("d-none");
+        }
+    </script>
+</body>
+</html>
