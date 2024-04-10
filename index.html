@@ -430,13 +430,13 @@
 
     <script type="text/javascript">
         function submit() {
-            var sidjs = new Sidjs();
-            var dot = sidjs.convert(document.getElementById("json").value);
+            var dot = new Sidjs().convert(document.getElementById("json").value);
 
             document.getElementById("form").classList.add("d-none");
             document.getElementById("control").classList.remove("d-none");
             document.getElementById("container").classList.remove("d-none");
-            d3.select("#container").graphviz().renderDot(dot);
+
+            d3.select("#container").graphviz({ width: window.screen.availWidth, height: window.screen.availHeight }).renderDot(dot);
         }
         
         function reset() {
