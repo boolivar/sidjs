@@ -9,7 +9,415 @@
         <button id="control" type="button" class="btn btn-link" onclick="reset()">&lt back</button>
         <div id="container" class="d-none flex-grow-1 w-100"></div>
         <div id="form" class="d-flex flex-column flex-grow-1 w-100 align-items-start">
-            <textarea id="json" class="form-control flex-grow-1 w-50"></textarea>
+            <textarea id="json" class="form-control flex-grow-1 w-50">
+{
+    "contentDescriptor": {
+        "providerVersion": "5.5.13",
+        "providerFormatVersion": 1.2,
+        "provider": "spring-integration"
+    },
+    "nodes": [
+        {
+        "nodeId": 1,
+        "componentType": "null-channel",
+        "integrationPatternType": "null_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "receiveCounters": {
+            "successes": 0,
+            "failures": 0
+        },
+        "name": "nullChannel"
+        },
+        {
+        "nodeId": 2,
+        "componentType": "publish-subscribe-channel",
+        "integrationPatternType": "publish_subscribe_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "errorChannel"
+        },
+        {
+        "nodeId": 3,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "integrationConverterChannel"
+        },
+        {
+        "nodeId": 4,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "integrationConverterFlow.channel#0"
+        },
+        {
+        "nodeId": 5,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "convert12Channel"
+        },
+        {
+        "nodeId": 6,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "graphResultChannel"
+        },
+        {
+        "nodeId": 7,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "invalidVersionChannel"
+        },
+        {
+        "nodeId": 8,
+        "componentType": "channel",
+        "integrationPatternType": "message_channel",
+        "integrationPatternCategory": "messaging_channel",
+        "properties": {},
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "resultFlow.channel#0"
+        },
+        {
+        "nodeId": 9,
+        "componentType": "gateway",
+        "integrationPatternType": "inbound_gateway",
+        "integrationPatternCategory": "messaging_endpoint",
+        "properties": {},
+        "output": "integrationConverterChannel",
+        "errors": null,
+        "name": "integrationGraphConverter.convert(org.bool.integration.dot.api.model.IntegrationGraph)"
+        },
+        {
+        "nodeId": 10,
+        "componentType": "logging-channel-adapter",
+        "integrationPatternType": "outbound_channel_adapter",
+        "integrationPatternCategory": "messaging_endpoint",
+        "properties": {},
+        "output": null,
+        "input": "errorChannel",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "errorLogger"
+        },
+        {
+        "nodeId": 11,
+        "componentType": "header-enricher",
+        "integrationPatternType": "header_enricher",
+        "integrationPatternCategory": "message_transformation",
+        "properties": {},
+        "output": "integrationConverterFlow.channel#0",
+        "input": "integrationConverterChannel",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "integrationConverterFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0"
+        },
+        {
+        "nodeId": 12,
+        "componentType": "router",
+        "integrationPatternType": "router",
+        "integrationPatternCategory": "message_routing",
+        "properties": {},
+        "output": "invalidVersionChannel",
+        "input": "integrationConverterFlow.channel#0",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "routes": [
+            "convert12Channel"
+        ],
+        "name": "integrationConverterFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#1"
+        },
+        {
+        "nodeId": 13,
+        "componentType": "transformer",
+        "integrationPatternType": "transformer",
+        "integrationPatternCategory": "message_transformation",
+        "properties": {},
+        "output": "graphResultChannel",
+        "input": "convert12Channel",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "convert12Flow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0"
+        },
+        {
+        "nodeId": 14,
+        "componentType": "IntegrationConfig$$Lambda$760/0x000002ae90421a00",
+        "integrationPatternType": "service_activator",
+        "integrationPatternCategory": "messaging_endpoint",
+        "properties": {},
+        "output": null,
+        "input": "invalidVersionChannel",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "invalidVersionFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0"
+        },
+        {
+        "nodeId": 15,
+        "componentType": "header-enricher",
+        "integrationPatternType": "header_enricher",
+        "integrationPatternCategory": "message_transformation",
+        "properties": {},
+        "output": "resultFlow.channel#0",
+        "input": "graphResultChannel",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "resultFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#0"
+        },
+        {
+        "nodeId": 16,
+        "componentType": "service-activator",
+        "integrationPatternType": "service_activator",
+        "integrationPatternCategory": "messaging_endpoint",
+        "properties": {},
+        "output": null,
+        "input": "resultFlow.channel#0",
+        "sendTimers": {
+            "successes": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            },
+            "failures": {
+            "count": 0,
+            "mean": 0,
+            "max": 0
+            }
+        },
+        "name": "resultFlow.org.springframework.integration.config.ConsumerEndpointFactoryBean#1"
+        }
+    ],
+    "links": [
+        {
+        "from": 9,
+        "to": 3,
+        "type": "output"
+        },
+        {
+        "from": 2,
+        "to": 10,
+        "type": "input"
+        },
+        {
+        "from": 3,
+        "to": 11,
+        "type": "input"
+        },
+        {
+        "from": 11,
+        "to": 4,
+        "type": "output"
+        },
+        {
+        "from": 4,
+        "to": 12,
+        "type": "input"
+        },
+        {
+        "from": 12,
+        "to": 7,
+        "type": "output"
+        },
+        {
+        "from": 12,
+        "to": 5,
+        "type": "route"
+        },
+        {
+        "from": 5,
+        "to": 13,
+        "type": "input"
+        },
+        {
+        "from": 13,
+        "to": 6,
+        "type": "output"
+        },
+        {
+        "from": 7,
+        "to": 14,
+        "type": "input"
+        },
+        {
+        "from": 6,
+        "to": 15,
+        "type": "input"
+        },
+        {
+        "from": 15,
+        "to": 8,
+        "type": "output"
+        },
+        {
+        "from": 8,
+        "to": 16,
+        "type": "input"
+        }
+    ]
+}
+            </textarea>
             <button class="btn btn-primary" type="submit" onclick="submit()">Submit</button>
         </div>
     </div>
